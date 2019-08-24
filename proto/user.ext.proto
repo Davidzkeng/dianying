@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package pb;
+
+service UserServiceExt {
+    //注册用户
+    rpc RegistAccount(RegistAccountReq) returns (RegistAccountRes) {}
+    //用户登录
+    rpc LoginAccount(LoginAccountReq) returns(LoginAccountRes){}
+    //评分
+    rpc WantScore(WantScoreReq) returns(WantScoreRes){}
+    //修改用户信息
+    rpc UpdateUserProfile(UpdateUserProfileReq) returns(UpdateUserProfileRes){}
+}
+
+message RegistAccountReq {
+    string email = 1;
+    string userName = 2;
+    string password = 3;
+}
+
+message RegistAccountRes {
+}
+
+message LoginAccountReq {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginAccountRes {
+    int64 userId = 1;
+    string userName = 2;
+    string email = 3;
+    string phone = 4;
+}
+
+message WantScoreReq {
+    int64 userId = 1;
+    int64 movieId =2;
+    int64 score = 3;
+}
+
+message WantScoreRes {
+
+}
+
+message UpdateUserProfileReq {
+    string userImage = 1;
+    string userName = 2;
+    string userEmail = 3;
+    string userPhone = 4;
+    int64 UserId = 5;
+}
+
+message UpdateUserProfileRes {
+
+}
